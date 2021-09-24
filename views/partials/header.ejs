@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>JobLog</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<body class="bgs">
+
+  <section id="title">
+    <div class="container-fluid bg-dark">
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark navigation ">
+
+          <a class="navbar-brand title" href="/"><button type="button" class="btn btn-outline-danger btns">JobLog</button></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/new"><button type="submit" class="btn btn-outline-light btns2">New</button></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/archive"><button type="submit" class="btn btn-outline-light btns2">Archive</button></a>
+            </li>
+            <li class="nav-item">
+              <form action="/logout?_method=DELETE" method="POST">
+                <a class="nav-link" href=""><button type="submit" class="btn btn-outline-light btns2">Log Out</button></a>
+              </form>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </section>

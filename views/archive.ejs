@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") -%>
+<section class="info">
+<div class="jumbotron text-light">Archive</div>
+
+
+<div class="container-fluid jobs">
+<div class="row cw">
+  <% for(var i = 0; i < archives.length; i++){  %>
+  <div class="col-lg-4 ">
+
+    <div class="card text-light bg-secondary mb-3" style="max-width: 18rem;">
+      <div class="card-header">
+        <h3><%= archives[i].company %></h3>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title"><%= archives[i].title %></h2>
+        <p class="card-text"><%= archives[i].interest %></p>
+        <p class="card-text"><%= archives[i].salary %></p>
+        <p class="card-text"><%= archives[i].comments %></p>
+        <p class="card-text"><%= archives[i].time %></p>
+<form action="/archive" method="post">
+        <button name= "deleteBTN" class="btn bttn btn-outline-light" value = "<%= archives[i].id %>" type="submit">Delete</button>
+</form>
+      </div>
+
+    </div>
+  </div>
+    <% } %>
+  </div>
+  </div>
+  </section>
+  <script src="/javascript/home.js" charset="utf-8"></script>
+  <%- include("partials/footer.ejs") -%>

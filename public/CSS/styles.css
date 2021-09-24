@@ -1,0 +1,94 @@
+.jobs {
+  text-align: center;
+padding: 50px 0px;
+}
+
+.info{
+  text-align: center;
+  background-color: #7951A8;
+}
+
+.bgs{
+background-color: #7951A8;
+}
+
+main {
+align-items: center;
+text-align: center;
+padding-bottom: 40px;
+}
+
+.needboarder{
+  border:20px;
+
+}
+
+.bod{
+  background-color: #7951A8;
+}
+
+
+.in{
+
+padding: 20px;
+width:45px;
+height: auto;
+color: white;
+}
+
+.navigation{
+padding-bottom: 20px
+}
+
+.bod{
+text-align: center;
+}
+
+.form-log {
+width: 100%;
+max-width: 330px;
+padding: 15px;
+margin: auto;
+}
+
+form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="company"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="comments"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+
+
+a{
+color: #11999E;
+text-decoration: none;
+margin: 0px;
+}
+
+.name{
+position: relative;
+padding top: 40px;
+}
+
+.slidecontainer {
+  width: 100%;
+}

@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") -%>
+<body>
+<section class="info">
+<div class="text-white jumbotron ">Home</div>
+
+
+<div class="container-fluid jobs">
+<div class="row cw">
+  <% for(var i = 0; i < data.length; i++){  %>
+  <div class="col-lg-4 ">
+    <div class="card text-light bg-secondary mb-3" style="max-width: 18rem;">
+      <div class="card-header">
+        <h2><%= data[i].company %></h2>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title"><%= data[i].title %></h4>
+        <h5 class="card-text"><%= data[i].interest %></h5>
+        <h5 class="card-text"><%= data[i].salary %></h5>
+        <p class="card-text"><%= data[i].comments %></p>
+        <h6 class="card-text"><%= data[i].time %></h6>
+<form action="/" method="post">
+        <button name= "abutton" class="btn bttn btn-outline-light" value ='<%= data[i].id %>' type="submit" >Archive</button>
+</form>
+      </div>
+
+    </div>
+  </div>
+
+    <% } %>
+  </div>
+  </div>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/javascript/home.js" charset="utf-8"></script>
+  <script src="/javascript/database.js" charset="utf-8"></script>
+</body>
+
+
+  <%- include("partials/footer.ejs") -%>

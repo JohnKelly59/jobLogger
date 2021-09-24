@@ -1,0 +1,46 @@
+<%- include("partials/header.ejs") -%>
+<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+<section class="bod">
+
+<form action="/new" method="post" class="form-log">
+  <div class="form-floating  text-white">
+    <input  required="" type="text" class="in form-control text-white bg-secondary" id="floatingInput" name="company" placeholder="Company" autocomplete="off">
+    <label for="floatingInput">Company</label>
+  </div>
+  <div class="form-floating  text-white">
+    <input type="text" required="" class=" in form-control  text-white bg-secondary" id="floatingPassword" name="title" placeholder="Job Title" autocomplete="off">
+    <label for="floatingPassword">Job Title</label>
+  </div>
+  <div class="form-floating  in form-control text-white bg-secondary ">
+    <p>Interest</p>
+    <input required="" type="range" min="1" max="10" value="0" oninput="this.nextElementSibling.value = this.value" id="floatingInput" name="interest" placeholder="Interest" autocomplete="off">
+<output>0</output>
+  </div>
+  <div class="form-floating  text-white">
+    <input required="" class="in form-control text-white bg-secondary" type="number" min="1" max="100" value="null" step="1"  id="floatingPassword" name="salary" placeholder="Hourly Salary" autocomplete="off">
+    <label for="floatingPassword">Hourly Salary</label>
+  </div>
+  <div class="form-floating  text-white">
+    <input type="text" class="in form-control  text-white bg-secondary" id="floatingPassword" name="comments" placeholder="Comments" autocomplete="off">
+    <label for="floatingPassword">Comments</label>
+  </div>
+<br>
+  <button class="alerting w-100 btn btn-lg btn-success" type="submit">Log</button>
+</form>
+</section>
+<%- include("partials/footer.ejs") -%>
