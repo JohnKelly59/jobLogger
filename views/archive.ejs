@@ -1,14 +1,12 @@
 <%- include("partials/header.ejs") -%>
+<h1 class="text-white  ">Archives</h1>
 <section class="info">
-<div class="jumbotron text-light">Archive</div>
-
-
 <div class="container-fluid jobs">
 <div class="row cw">
   <% for(var i = 0; i < archives.length; i++){  %>
   <div class="col-lg-4 ">
 
-    <div class="card text-light bg-secondary mb-3" style="max-width: 18rem;">
+    <div class="card text-light bg-dark mb-3" style="max-width: 18rem;">
       <div class="card-header">
         <h3><%= archives[i].company %></h3>
       </div>

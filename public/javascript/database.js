@@ -2,10 +2,10 @@ const appData= require("C:/Users/First/Desktop/Web Development/joblog/app.js")
 
 //creates active table
 const sqlite3 = require('sqlite3').verbose();
-let data = []
-let archives = []
+var data = []
+var archives = []
 const sqe = []
-let users = []
+var users = []
 let db = new sqlite3.Database('./log.db');
 
 //creates tables
@@ -37,8 +37,9 @@ let date = 'SELECT * FROM active WHERE archive=0 AND user_id= "'+appData.userB+'
             }
            rows.forEach((row)=>{
                data.push(row);
+               //console.log(row)
            });
-
+console.log(data)
   });
 }
 
@@ -52,7 +53,7 @@ function addToArchive(){
              rows.forEach((row)=>{
                  archives.push(row);
              });
-     //console.log(archives)
+     console.log(archives + "addtoarch")
 
    });
 }
@@ -66,6 +67,14 @@ db.run('UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE  NAME= "active" ',(err,rows)=>{
 
     //console.log("SQE updated");
 
+})
+}
+
+function newUser(){
+    db.run("INSERT INTO users(name, email, passwordHash) VALUES ('" + appData.name + "', '" + appData.email + "', '"+ appData.hashPassword + "')", function(err) {
+      if(err){
+          return console.error(err.message);
+      }
 })
 }
 
@@ -91,7 +100,8 @@ let button = appData.archiveB;
   if (err){
     return console.log(err.message)
   }else{
-    archives = []
+    archives.length = 0
+    console.log(archives +"pressed")
     addToArchive()
   }
 })
@@ -120,12 +130,16 @@ let newEntry = ("SELECT * FROM active WHERE user_id = '"+appData.userB+"' ORDER 
 }
 
 function deleteFromActive(){
-    db.run("DELETE FROM active Where id = '"+appData.delete+"' AND user_id= '"+appData.user+"'", function(err){
+    db.run("DELETE FROM active Where id = '"+appData.delete+"' AND user_id= '"+appData.userB+"'", function(err){
     if (err){
       return console.log(err.message)
     }})};
 
-
+function eraseArray(){
+  data.length = 0
+  archives.length = 0
+  console.log(data)
+}
 
 
 
@@ -148,18 +162,8 @@ function deleteFromActive(){
 // })
 // }
 
-// function all() {
-//   console.log(appData.userB + "hereye")
-// let date = 'SELECT * FROM active WHERE archive = 1 AND user_id = "'+appData.userB+'" ORDER BY id' ;
-//  db.all(date,[],(err,rows)=>{
-//             if(err){
-//                return console.error(err.message);
-//             }
-//            rows.forEach((row)=>{
-//                data.push(row);
-//            });
-//               console.log(data + "here")
-//   });
-// }
+//
 
-module.exports = {tableCreation, addToData, addToArchive, resetSQE, addToUserList, users, data, archives, sqe, pressedArchive, newLog, deleteFromActive};
+module.exports = {tableCreation, addToData, addToArchive, resetSQE,
+  addToUserList, users, data, archives, sqe, pressedArchive,
+  newLog, deleteFromActive, eraseArray, newUser};

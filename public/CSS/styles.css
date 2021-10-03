@@ -16,8 +16,16 @@ main {
 align-items: center;
 text-align: center;
 padding-bottom: 40px;
+font-family: 'Holtwood One SC', serif;
 }
 
+h1{
+font-family: 'Holtwood One SC', serif;
+}
+
+.card-body{
+font-family: 'Holtwood One SC', serif;
+}
 .needboarder{
   border:20px;
 
@@ -27,6 +35,9 @@ padding-bottom: 40px;
   background-color: #7951A8;
 }
 
+.navfont{
+font-family: 'Holtwood One SC', serif;
+}
 
 .in{
 
@@ -55,18 +66,21 @@ form-signin .form-floating:focus-within {
   z-index: 2;
 }
 
-.form-signin input[type="company"] {
+.form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="comments"] {
+.form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
+.form-signin input[type="text"] {
+  border-radius: 0;
+}
 
 
 .form-signin {
@@ -91,4 +105,12 @@ padding top: 40px;
 
 .slidecontainer {
   width: 100%;
+}
+
+
+.btns2{
+  border: none;
+  background: none;
+  font-size: 30px;
+
 }

@@ -1,14 +1,13 @@
 <%- include("partials/header.ejs") -%>
 <body>
+
+<h1 class="text-white  ">Home</h1>
 <section class="info">
-<div class="text-white jumbotron ">Home</div>
-
-
 <div class="container-fluid jobs">
 <div class="row cw">
   <% for(var i = 0; i < data.length; i++){  %>
   <div class="col-lg-4 ">
-    <div class="card text-light bg-secondary mb-3" style="max-width: 18rem;">
+    <div class="card text-light bg-dark mb-3" style="max-width: 18rem;">
       <div class="card-header">
         <h2><%= data[i].company %></h2>
       </div>
