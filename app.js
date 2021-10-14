@@ -7,7 +7,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require('path');
 const app = express();
-const mongoose = require("mongoose");
 const sqlite3 = require('sqlite3').verbose();
 const bcrypt = require("bcrypt");
 const passport = require("passport")
@@ -15,14 +14,13 @@ const flash = require("express-flash")
 const session = require("express-session")
 const initializePassport = require("./passport-config")
 const methodOverride = require("method-override")
-const date = require(__dirname + "/public/javascript/home.js")
+//database.js functions
 const mydb = require(__dirname + "/public/javascript/database.js")
 initializePassport(passport,
   email => mydb.users.find(user => user.email === email),
   id => mydb.users.find(user => user.id === id),
 )
-
-
+var _ = require('lodash');
 
 //initiates ejs
 app.set('view engine', 'ejs');
@@ -43,10 +41,6 @@ app.use(methodOverride("_method"))
 
 //creates active table
 mydb.tableCreation()
-
-//deletes table data
-//mydb.deleteTable()
-//mydb.all()
 //resets id to 1
 mydb.resetSQE()
 //Adds to userslist
@@ -61,8 +55,6 @@ app.use(bodyParser.urlencoded({
 
 
 //User Authentication
-
-
 //login page
 app.get("/login", checkNotAuthenticated, function(req, res) {
 console.log(mydb.data)
@@ -76,6 +68,7 @@ app.get("/register", checkNotAuthenticated, function(req, res) {
   res.render("register")
 });
 
+//registers new users
 app.post("/register", checkNotAuthenticated, async function(req, res) {
   const name = req.body.name
   const email = req.body.email
@@ -96,7 +89,7 @@ app.post("/register", checkNotAuthenticated, async function(req, res) {
 });
 
 
-
+//authenticates password
 app.post('/login', passport.authenticate('local', {
     failureRedirect: '/login',
     failureFlash: true
@@ -109,7 +102,7 @@ app.post('/login', passport.authenticate('local', {
     res.redirect('/');
 
   });
-
+//Logs user out
   app.post('/logout', function(req, res){
   mydb.eraseArray()
     req.logout();
@@ -119,7 +112,9 @@ app.post('/login', passport.authenticate('local', {
 
 //home page
 app.get("/", checkAuthenticated, function(req, res) {
-
+  console.log(mydb.data[0].company)
+  
+  
   res.render("home", {
     data: mydb.data
   })
@@ -131,7 +126,7 @@ app.get("/new", checkAuthenticated, function(req, res) {
   res.render("new")
 });
 
-
+//Archive page
 app.get("/archive", checkAuthenticated, function(req, res) {
 
   res.render("archive", {
@@ -150,7 +145,7 @@ app.post("/new", checkAuthenticated, function(req, res) {
   const interest = req.body.interest;
   const salary = req.body.salary;
   const comments = req.body.comments;
-  let day = date.getDate();
+  let day = mydb.getDate();
   const user = req.user.id
   exports.company = company
   exports.title = jtitle
@@ -165,10 +160,11 @@ app.post("/new", checkAuthenticated, function(req, res) {
   res.redirect("/new");
 });
 
+
+//Archive button functionality
 app.post("/", checkAuthenticated, function(req, res) {
   const user = req.user.id
   const archivebutton = req.body.abutton;
-
   exports.archiveB = archivebutton;
   exports.userB = user;
 
@@ -183,7 +179,7 @@ app.post("/", checkAuthenticated, function(req, res) {
 
 
 
-
+//Delete button functionality
 app.post("/archive", function(req, res) {
 
   const deleteButton = req.body.deleteBTN;
@@ -198,13 +194,45 @@ app.post("/archive", function(req, res) {
   res.redirect("/archive")
 })
 
+//restore users from archive page
+app.post("/back", function(req, res) {
+
+  const restoreButton = req.body.restore;
+  const user = req.user.id
+  exports.restore = restoreButton
+  exports.userB = user;
+  mydb.restoreFromArchive()
+  var go = mydb.archives.findIndex(x => x.id ==restoreButton);
+  mydb.archives.splice(go, 1)
+
+  res.redirect("/archive")
+})
+
+//creates comments page
+app.get("/comment/:commentName", function(req, res){
+  const requestedTitle = _.lowerCase(req.params.commentName);
+  let guesses = mydb.data
+
+console.log(guesses)
+  guesses.forEach(function(guess){
+    const storedTitle = _.lowerCase(guess.company);
+console.log(storedTitle);
+    if (storedTitle === requestedTitle) {
+      res.render("comment", {
+        company: guess.company,
+        title: guess.title,
+        comments: guess.comments
+      });
+    }
+  });
+
+});
 
 
 
 
 
-
-
+//checks if user is aunthenticated before loading page
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next()
@@ -212,7 +240,7 @@ function checkAuthenticated(req, res, next) {
 
   res.redirect('/login')
 }
-
+//checks is user is not authenticated before loading page
 function checkNotAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return res.redirect('/')

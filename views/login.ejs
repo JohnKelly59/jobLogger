@@ -1,12 +1,12 @@
 <%- include("partials/header2.ejs") -%>
-<h1 class="text-white">Login</h1>
+<h1 class="text-dark">Login</h1>
 <% if (messages.error) {%>
 <%= messages.error %>
 <% } %>
  <main class="form-signin">
    <form class="" action="/login" method="post">
      <img class="mb-4" src="/images/files.png" alt="" width="72" height="57">
-     <h2 class="h3 mb-3 fw-normal text-white">Please sign in</h2>
+     <h2 class="h3 mb-3 fw-normal text-dark">Please sign in</h2>
      <div class="form-floating">
        <input name= "email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
        <label for="floatingInput">Email address</label>
@@ -24,6 +24,6 @@
      <button class="w-100 btn btn-lg btn-dark" type="submit">Log-in</button>
    </form>
    <br >
-   <a href="/register" class= "text-white">Register</a>
-   <p class="mt-5 mb-3 text-white">J-Kizzy</p>
+   <a href="/register" class= "text-dark">Register</a>
+   <p class="mt-5 mb-3 text-dark">J-Kizzy</p>
  </main>

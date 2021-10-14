@@ -1,22 +1,30 @@
+.bgs{
+
+   background: url("/images/cool-background.png") no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+}
+
 .jobs {
   text-align: center;
-padding: 50px 0px;
+  padding: 100px;
 }
 
 .info{
   text-align: center;
-  background-color: #7951A8;
 }
 
-.bgs{
-background-color: #7951A8;
-}
+
 
 main {
 align-items: center;
 text-align: center;
+padding-top: 10px;
 padding-bottom: 40px;
 font-family: 'Holtwood One SC', serif;
+
 }
 
 h1{
@@ -31,9 +39,7 @@ font-family: 'Holtwood One SC', serif;
 
 }
 
-.bod{
-  background-color: #7951A8;
-}
+
 
 .navfont{
 font-family: 'Holtwood One SC', serif;
@@ -100,7 +106,7 @@ margin: 0px;
 
 .name{
 position: relative;
-padding top: 40px;
+padding-top: 40px;
 }
 
 .slidecontainer {
@@ -114,3 +120,28 @@ padding top: 40px;
   font-size: 30px;
 
 }
+
+.icon{
+  width: 150px;
+}
+
+.container-fluid{
+  text-align: center;
+}
+
+.bttn{
+  display: inline-block;
+}
+
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  
+}
+
+.a {
+  color: inherit;
+  text-decoration: inherit;
+}
+

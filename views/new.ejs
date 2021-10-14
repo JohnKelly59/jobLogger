@@ -14,33 +14,49 @@
         }
       }
     </style>
+<section class="container-fluid bg-dark p-5 opacity-75">
+  <div class="row ct text-light ">
+    <div class="col-lg-6">
+      <h1><b>New</b></h1>
+      <h5>To add a job-card into you home page, fill in the text boxes below.</h4>
+      <h5>Once the text boxes are filled, the card will automatically be created.</h4>
+      <h5>to add more content to the card, go to the home page.</h4>
+      
+    </div>
+  
+    <div class="col-lg-6">
+      <img class="icon" src="images/add.png"  class="rotate ct">
+    </div>
+  </div>
+  </div>
+  </section>
 
 <section class="bod">
 
 <form action="/new" method="post" class="form-log">
   <div class="form-floating  text-white">
-    <input  required="" type="text" class="in form-control text-white bg-secondary" id="floatingInput" name="company" placeholder="Company" autocomplete="off">
+    <input  required="" type="text" class="in form-control text-white bg-dark" id="floatingInput" name="company" placeholder="Company" autocomplete="off">
     <label for="floatingInput">Company</label>
   </div>
   <div class="form-floating  text-white">
-    <input type="text" required="" class=" in form-control  text-white bg-secondary" id="floatingPassword" name="title" placeholder="Job Title" autocomplete="off">
+    <input type="text" required="" class=" in form-control  text-white bg-dark" id="floatingPassword" name="title" placeholder="Job Title" autocomplete="off">
     <label for="floatingPassword">Job Title</label>
   </div>
-  <div class="form-floating  in form-control text-white bg-secondary ">
+  <div class="form-floating  in form-control text-white bg-dark ">
     <p>Interest</p>
     <input required="" type="range" min="1" max="10" value="0" oninput="this.nextElementSibling.value = this.value" id="floatingInput" name="interest" placeholder="Interest" autocomplete="off">
 <output>0</output>
   </div>
   <div class="form-floating  text-white">
-    <input required="" class="in form-control text-white bg-secondary" type="number" min="1" max="100" value="null" step="1"  id="floatingPassword" name="salary" placeholder="Hourly Salary" autocomplete="off">
+    <input required="" class="in form-control text-white bg-dark" type="number" min="1" max="100" value="null" step="1"  id="floatingPassword" name="salary" placeholder="Hourly Salary" autocomplete="off">
     <label for="floatingPassword">Hourly Salary</label>
   </div>
   <div class="form-floating  text-white">
-    <input type="text" class="in form-control  text-white bg-secondary" id="floatingPassword" name="comments" placeholder="Comments" autocomplete="off">
+    <input type="text" class="in form-control  text-white bg-dark" id="floatingPassword" name="comments" placeholder="Comments" autocomplete="off">
     <label for="floatingPassword">Comments</label>
   </div>
 <br>
-  <button class="alerting w-100 btn btn-lg btn-success" type="submit">Log</button>
+  <button class="alerting w-100 btn btn-lg btn-dark" type="submit">Log</button>
 </form>
 </section>
 <%- include("partials/footer.ejs") -%>

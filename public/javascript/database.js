@@ -92,7 +92,7 @@ function addToUserList(){
      //console.log(users)
 })
 }
-
+//puts data into archive array
 function pressedArchive(){
 let button = appData.archiveB;
 //console.log(appData.userB)
@@ -107,7 +107,7 @@ let button = appData.archiveB;
 })
 }
 
-//Puts new log nito homepage
+//Puts new log into homepage
 function newLog(){
   console.log(appData.userB)
 db.run("INSERT INTO active(user_id, company, title, interest, salary, comments, archive, time) VALUES ('"+appData.userB+"','"+appData.company+"', '"+appData.title+"', '"+appData.interest+"', '"+appData.salary+"', '"+appData.comments+"', '0', '"+appData.day+"')", function(err){
@@ -128,19 +128,37 @@ let newEntry = ("SELECT * FROM active WHERE user_id = '"+appData.userB+"' ORDER 
 }
 })
 }
-
+//deletes data from database
 function deleteFromActive(){
     db.run("DELETE FROM active Where id = '"+appData.delete+"' AND user_id= '"+appData.userB+"'", function(err){
     if (err){
       return console.log(err.message)
     }})};
 
+//moves data from arhive array to data array
+    function restoreFromArchive(){
+      let restore = appData.restore;
+      //console.log(appData.userB)
+        db.run("UPDATE active SET archive = 0 WHERE id = '"+restore+"' AND user_id = '"+appData.userB+"'"  , function(err){
+        if (err){
+          return console.log(err.message)
+        }else{
+          archives.length = 0
+          console.log(archives +"pressed")
+          addToArchive()
+          data.length = 0
+          addToData()
+        }
+      })
+      }
+
+
+
 function eraseArray(){
   data.length = 0
   archives.length = 0
   console.log(data)
 }
-
 
 
 
@@ -164,6 +182,15 @@ function eraseArray(){
 
 //
 
+
+getDate = function(){
+  var today  = new Date();
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  
+  return today.toLocaleDateString("en-US", options);
+  
+  };
+
 module.exports = {tableCreation, addToData, addToArchive, resetSQE,
   addToUserList, users, data, archives, sqe, pressedArchive,
-  newLog, deleteFromActive, eraseArray, newUser};
+  newLog, deleteFromActive, eraseArray, newUser, restoreFromArchive, getDate};

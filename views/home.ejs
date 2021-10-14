@@ -1,25 +1,46 @@
 <%- include("partials/header.ejs") -%>
-<body>
 
-<h1 class="text-white  ">Home</h1>
-<section class="info">
+
+
+
+
+<section class="container-fluid bg-dark p-5 opacity-75">
+<div class="row ct text-light">
+  <div class="col-lg-6">
+    <h3><b>Home</b></h3>
+    <h5>Click the add button in the navigation bar to add a new black job-card to the home page.</h5>
+    <h5>A red card indicates that you should reach out to the company to get an update on your application status.</h5>
+    <h5>Click the Company Name to get more insight about the job the you applied for.</h5>
+    <h5>When the Archive button is pressed, the job-card is then moved to your archive list.</h5>
+  </div>
+
+  <div class="col-lg-6">
+    <img class="icon" src="images/home.png" alt="home icon" class="rotate ct">
+  </div>
+</div>
+</div>
+</section>
+
+
 <div class="container-fluid jobs">
 <div class="row cw">
   <% for(var i = 0; i < data.length; i++){  %>
   <div class="col-lg-4 ">
-    <div class="card text-light bg-dark mb-3" style="max-width: 18rem;">
+    <div id="cards" class="card text-light bg-dark mb-3" style="max-width: 18rem;">
       <div class="card-header">
         <h2><%= data[i].company %></h2>
       </div>
-      <div class="card-body">
+      <div class="card-body" >
         <h4 class="card-title"><%= data[i].title %></h4>
         <h5 class="card-text"><%= data[i].interest %></h5>
         <h5 class="card-text"><%= data[i].salary %></h5>
-        <p class="card-text"><%= data[i].comments %></p>
-        <h6 class="card-text"><%= data[i].time %></h6>
-<form action="/" method="post">
+        <h6 class="card-text" ><%= data[i].time %></h6>
+        <div class=" btn-group">
+          <button class="btn bttn btn-outline-light"><a name = "commentL" value ='<%= data[i].id %>' class="a" href="/comment/<%=data[i].company%>">Comments</a></button>
+        <form action="/" method="post">
         <button name= "abutton" class="btn bttn btn-outline-light" value ='<%= data[i].id %>' type="submit" >Archive</button>
-</form>
+      </form>
+      </div>
       </div>
 
     </div>
@@ -29,11 +50,10 @@
   </div>
   </div>
   </section>
-
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="/javascript/home.js" charset="utf-8"></script>
-  <script src="/javascript/database.js" charset="utf-8"></script>
 </body>
 
 
-  <%- include("partials/footer.ejs") -%>
+
