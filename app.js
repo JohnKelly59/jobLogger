@@ -112,7 +112,7 @@ app.post('/login', passport.authenticate('local', {
 
 //home page
 app.get("/", checkAuthenticated, function(req, res) {
-  console.log(mydb.data[0].company)
+  console.log()
   
   
   res.render("home", {

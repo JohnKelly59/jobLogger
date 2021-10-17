@@ -30,6 +30,7 @@ db.run("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT, n
 
 //adds data to data array
 function addToData() {
+
 let date = 'SELECT * FROM active WHERE archive=0 AND user_id= "'+appData.userB+'" ORDER BY id' ;
  db.all(date,[],(err,rows)=>{
             if(err){
@@ -45,6 +46,7 @@ console.log(data)
 
 //adds data to archive array
 function addToArchive(){
+  
   let date2 = 'SELECT * FROM active WHERE archive = 1 AND user_id= "'+appData.userB+'" ORDER BY id' ;
    db.all(date2,[],(err,rows)=>{
              if(err){
@@ -107,7 +109,7 @@ let button = appData.archiveB;
 })
 }
 
-//Puts new log into homepage
+//Puts new log into db
 function newLog(){
   console.log(appData.userB)
 db.run("INSERT INTO active(user_id, company, title, interest, salary, comments, archive, time) VALUES ('"+appData.userB+"','"+appData.company+"', '"+appData.title+"', '"+appData.interest+"', '"+appData.salary+"', '"+appData.comments+"', '0', '"+appData.day+"')", function(err){
@@ -128,6 +130,7 @@ let newEntry = ("SELECT * FROM active WHERE user_id = '"+appData.userB+"' ORDER 
 }
 })
 }
+
 //deletes data from database
 function deleteFromActive(){
     db.run("DELETE FROM active Where id = '"+appData.delete+"' AND user_id= '"+appData.userB+"'", function(err){
@@ -159,6 +162,8 @@ function eraseArray(){
   archives.length = 0
   console.log(data)
 }
+
+
 
 
 
