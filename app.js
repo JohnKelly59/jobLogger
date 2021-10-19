@@ -7,7 +7,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require('path');
 const app = express();
-const sqlite3 = require('sqlite3').verbose();
+let mysql = require('mysql');
 const bcrypt = require("bcrypt");
 const passport = require("passport")
 const flash = require("express-flash")
@@ -15,7 +15,7 @@ const session = require("express-session")
 const initializePassport = require("./passport-config")
 const methodOverride = require("method-override")
 //database.js functions
-const mydb = require(__dirname + "/public/javascript/database.js")
+const mydb = require(__dirname + "/connect.js")
 initializePassport(passport,
   email => mydb.users.find(user => user.email === email),
   id => mydb.users.find(user => user.id === id),
