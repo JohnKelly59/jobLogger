@@ -1,4 +1,4 @@
-const appData= require("C:/Users/First/Desktop/Web Development/joblog/app.js")
+const appData= require("C:/Users/First/Desktop/Web Development/joblog/server.js")
 const mysql = require('mysql')
 
 const db = mysql.createConnection({
@@ -168,7 +168,7 @@ function deleteFromActive(){
     function restoreFromArchive(){
       let restore = appData.restore;
       //console.log(appData.userB)
-        db.run("UPDATE active SET archive = 0 WHERE id = '"+restore+"' AND user_id = '"+appData.userB+"'"  , function(err){
+        db.query("UPDATE active SET archive = 0 WHERE id = '"+restore+"' AND user_id = '"+appData.userB+"'"  , function(err){
         if (err){
           return console.log(err.message)
         }else{
