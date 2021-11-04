@@ -1,20 +1,20 @@
 const appData= require("C:/Users/First/Desktop/Web Development/joblog/server.js")
-const mysql = require('mysql')
+const mysql = require('mysql2')
 
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
-  database: 'jobLog'
+  password: 'Johnisbroke!1',
+ Port: 3306,
+ database: 'joblog'
 });
 
 db.connect(function(err) {
-  if (err) {
-    return console.error('error: ' + err.message);
-  }
-
-  console.log('Connected to the MySQL server.');
+  if (err) throw err;
+  console.log("Connected!");
 });
+
+
 
  let sql = "CREATE DATABASE IF NOT EXISTS jobLog "
 
