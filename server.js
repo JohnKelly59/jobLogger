@@ -11,10 +11,10 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport")
 const flash = require("express-flash")
 const session = require("express-session")
-const initializePassport = require("./passport-config")
+const initializePassport = require("./public/passport-config")
 const methodOverride = require("method-override")
 //database.js functions
-const mydb = require(__dirname + "/connect.js")
+const mydb = require(__dirname + "/public/connect.js")
 initializePassport(passport,
   email => mydb.users.find(user => user.email === email),
   id => mydb.users.find(user => user.id === id),
