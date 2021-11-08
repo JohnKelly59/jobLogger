@@ -19,6 +19,9 @@ initializePassport(passport,
   email => mydb.users.find(user => user.email === email),
   id => mydb.users.find(user => user.id === id),
 )
+var path = require("path");
+
+
 var _ = require('lodash');
 
 //initiates ejs
