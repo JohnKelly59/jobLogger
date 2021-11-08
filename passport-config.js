@@ -1,5 +1,5 @@
 const LocalStrategy = require("passport-local").Strategy
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 const mydb = require(__dirname + "/connect.js")
 const appData= require("C:/Users/First/Desktop/Web Development/joblog/server.js")
 
