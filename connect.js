@@ -6,7 +6,6 @@ const db = mysql.createConnection
   host: 'localhost',
   user: 'root',
   password: 'Johnisbroke!1',
- Port: 3306,
  database: "joblog"
 });
 
