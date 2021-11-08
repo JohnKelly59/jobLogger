@@ -1,7 +1,8 @@
-const appData= require("C:/Users/First/Desktop/Web Development/joblog/app.js")
+const appData= require("C:/Users/First/Desktop/Web Development/joblog/server.js")
 const mysql = require('mysql2')
 
-const db = mysql.createConnection({
+const db = mysql.createConnection
+({
   host: 'localhost',
   user: 'root',
   password: 'Johnisbroke!1',

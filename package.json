@@ -2,10 +2,10 @@
   "name": "joblog",
   "version": "1.0.0",
   "description": "log jobs",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "author": "John",
   "license": "ISC",

@@ -249,7 +249,7 @@ function checkNotAuthenticated(req, res, next) {
 }
 
 
-const server = app.listen(process.env.PORT || 5000, () => {
-  const port = server.address().port;
-  console.log(`Express is working on port ${port}`);
-});
+const port = process.env.PORT || 8081;
+      app.listen(port, () => {
+        console.log("Server is listening on: ", port);
+      });
