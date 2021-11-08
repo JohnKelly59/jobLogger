@@ -5,7 +5,6 @@ if (process.encNODE_ENV !== "production") {
 //all modules
 const express = require("express");
 const bodyParser = require("body-parser");
-const path = require('path');
 const app = express();
 let mysql = require('mysql2');
 const bcrypt = require("bcrypt");
