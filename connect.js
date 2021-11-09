@@ -7,7 +7,7 @@ const db = mysql.createConnection
   user: 'admin',
   password: 'JK660401',
   port: 3306,
-  DB: "process.env.joblog"
+  database: "process.env.joblog"
 });
 
 db.connect(function(err) {
