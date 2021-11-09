@@ -1,13 +1,13 @@
 const appData= require(__dirname + "/server.js")
-const mysql = require('mysql')
+const mysql = require('mysql2')
 
 const db = mysql.createConnection
 ({
-  host: 'database-1.chqvmqyjerdw.us-east-2.rds.amazonaws.com',
-  user: 'admin',
-  password: 'Johnisbroke!1',
-  port: '3306',
-  database: "joblog"
+  host: 'process.env.database-1.chqvmqyjerdw.us-east-2.rds.amazonaws.com',
+  user: 'process.env.admin',
+  password: 'process.env.Johnisbroke!1',
+  port: 'process.env.3306',
+  database: "process.env.joblog"
 });
 
 db.connect(function(err) {
