@@ -1,4 +1,4 @@
-const appData= require("C:/Users/First/Desktop/Web Development/joblog/server.js")
+const appData= require(__dirname + "/server.js")
 const mysql = require('mysql2')
 
 const db = mysql.createConnection
