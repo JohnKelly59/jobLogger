@@ -3,9 +3,9 @@ const mysql = require('mysql2')
 
 const db = mysql.createConnection
 ({
-  host: 'process.env.aaoixndxpezyoj.chqvmqyjerdw.us-east-2.rds.amazonaws.com',
-  user: 'process.env.admin',
-  password: 'process.env.Johnisbroke!1',
+  host: 'aaoixndxpezyoj.chqvmqyjerdw.us-east-2.rds.amazonaws.com',
+  user: 'admin',
+  password: 'Johnisbroke!1',
   port: 3306,
   DB: "process.env.joblog"
 });
