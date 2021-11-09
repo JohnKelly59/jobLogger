@@ -6,8 +6,7 @@ const db = mysql.createConnection
   host: 'aa8xd09dagl565.chqvmqyjerdw.us-east-2.rds.amazonaws.com',
   user: 'admin',
   password: 'Johnisbroke!1',
-  port: 3306,
-  database: "joblog"
+  port: 3306
 });
 
 db.connect(function(err) {
