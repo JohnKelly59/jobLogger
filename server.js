@@ -6,7 +6,7 @@ if (process.encNODE_ENV !== "production") {
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-let mysql = require('mysql2');
+let mysql = require('mysql');
 const bcrypt = require("bcryptjs");
 const passport = require("passport")
 const flash = require("express-flash")

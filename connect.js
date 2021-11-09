@@ -1,5 +1,5 @@
 const appData= require(__dirname + "/server.js")
-const mysql = require('mysql2')
+const mysql = require('mysql')
 
 const db = mysql.createConnection
 ({
