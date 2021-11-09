@@ -3,10 +3,10 @@ const mysql = require('mysql2')
 
 const db = mysql.createConnection
 ({
-  host: 'RDS_HOSTNAME',
-  user: 'RDS_USERNAME',
-  password: 'RDS_PASSWORD',
- database: "joblog"
+  host: 'process.env.RDS_HOSTNAME',
+  user: 'process.env.RDS_USERNAME',
+  password: 'process.env.RDS_PASSWORD',
+  port     : process.env.RDS_PORT
 });
 
 db.connect(function(err) {
