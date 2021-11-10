@@ -7,7 +7,9 @@ const db = mysql.createConnection
   user: 'admin',
   password: 'Johnisbroke!1',
   port: 3306,
+
 });
+
 
 db.connect(function(err) {
   if (err) throw err;
@@ -22,7 +24,7 @@ db.connect(function(err) {
   
 });
 
-
+connection.end();
 
 
 var data = []
