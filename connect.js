@@ -7,24 +7,22 @@ const db = mysql.createConnection
   user: 'admin',
   password: 'Johnisbroke!1',
   port: 3306,
-  database: "joblog"
 });
 
 db.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
+  let sql = "CREATE DATABASE IF NOT EXISTS jobLog "
+  db.query(sql, (err) =>{
+    if(err){
+      throw err
+    }
+    console.log("Database Created")
+  })
+  
 });
 
 
-
- let sql = "CREATE DATABASE IF NOT EXISTS jobLog "
-
-db.query(sql, (err) =>{
-  if(err){
-    throw err
-  }
-  console.log("Database Created")
-})
 
 
 var data = []
