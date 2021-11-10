@@ -120,7 +120,7 @@ function addToUserList(){
      console.log(users)
 })
 }
-//puts data into archive array
+//puts data into archive arrays
 function pressedArchive(){
 let button = appData.archiveB;
 //console.log(appData.userB)
