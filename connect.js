@@ -24,7 +24,7 @@ db.connect(function(err) {
   
 });
 
-connection.end();
+db.end();
 
 
 var data = []
