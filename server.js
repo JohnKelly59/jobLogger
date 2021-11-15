@@ -118,8 +118,7 @@ app.get("/", checkAuthenticated, function(req, res) {
   
   
   res.render("home", {
-    data: mydb.data,
-    userB: user
+    data: mydb.data
   })
 });
 
@@ -131,8 +130,7 @@ app.get("/new", checkAuthenticated, function(req, res) {
 
 //Archive page
 app.get("/archive", checkAuthenticated, function(req, res) {
-  const user = req.user.id
-  exports.userB = user;
+
   res.render("archive", {
     archives: mydb.archives
   })
