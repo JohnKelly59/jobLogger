@@ -129,7 +129,7 @@ let button = appData.archiveB;
     return console.log(err.message)
   }else{
     archives.length = 0
-    console.log(archives +"pressed")
+    //console.log(archives +"pressed")
     addToArchive()
   }
 })
