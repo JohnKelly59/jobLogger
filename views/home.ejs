@@ -33,7 +33,7 @@
       <div class="card-body" >
         <h4 class="card-title"><%= data[i].title %></h4>
         <h5 class="card-text"><%= data[i].interest %></h5>
-        <h5 class="card-text"><%= data[i].salary %></h5>
+        <h5 class="card-text">$<%= data[i].salary %></h5>
         <h6 class="card-text" ><%= data[i].time %></h6>
         <div class=" btn-group">
           <button class="btn bttn btn-outline-light"><a name = "commentL" value ='<%= data[i].id %>' class="a" href="/comment/<%=data[i].company%>">Comments</a></button>
