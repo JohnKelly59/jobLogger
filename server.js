@@ -114,20 +114,18 @@ app.post('/login', passport.authenticate('local', {
 
 //home page
 app.get("/", checkAuthenticated, function(req, res) {
-  const user = req.user.id
-    exports.userB = user;
   console.log()
   
   
   res.render("home", {
-    data: mydb.data
+    data: mydb.data,
+    userB: user
   })
 });
 
 //page to add new job
 app.get("/new", checkAuthenticated, function(req, res) {
-  const user = req.user.id
-    exports.userB = user;
+
   res.render("new")
 });
 
