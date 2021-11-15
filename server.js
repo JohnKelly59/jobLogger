@@ -114,7 +114,8 @@ app.post('/login', passport.authenticate('local', {
 
 //home page
 app.get("/", checkAuthenticated, function(req, res) {
-  exports.userB = user;
+  const user = req.user.id
+    exports.userB = user;
   console.log()
   
   
@@ -125,12 +126,14 @@ app.get("/", checkAuthenticated, function(req, res) {
 
 //page to add new job
 app.get("/new", checkAuthenticated, function(req, res) {
-  exports.userB = user;
+  const user = req.user.id
+    exports.userB = user;
   res.render("new")
 });
 
 //Archive page
 app.get("/archive", checkAuthenticated, function(req, res) {
+  const user = req.user.id
   exports.userB = user;
   res.render("archive", {
     archives: mydb.archives
